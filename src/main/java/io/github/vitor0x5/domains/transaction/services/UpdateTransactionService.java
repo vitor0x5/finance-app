@@ -5,8 +5,7 @@ import io.github.vitor0x5.domains.transaction.dtos.CreateTransactionDTO;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
-import io.github.vitor0x5.domains.user.entities.AppUser;
-import io.github.vitor0x5.domains.user.repositories.UsersRepository;
+import io.github.vitor0x5.shared.errors.types.BusinessException;
 import io.github.vitor0x5.shared.errors.types.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -15,30 +14,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 @Service
-public class CreateTransactionService {
+public class UpdateTransactionService {
     private final TransactionsRepository transactionsRepository;
-    private final UsersRepository usersRepository;
     private final ModelMapper mapper;
 
-    public CreateTransactionService(
-            TransactionsRepository transactionsRepository,
-            UsersRepository usersRepository,
-            ModelMapper mapper
-    ) {
+    public UpdateTransactionService(TransactionsRepository transactionsRepository, ModelMapper mapper) {
         this.transactionsRepository = transactionsRepository;
-        this.usersRepository = usersRepository;
         this.mapper = mapper;
     }
 
     @Transactional
-    public TransactionResponseDataDTO execute(CreateTransactionDTO transactionData, UUID userId) {
-        AppUser user = usersRepository.findById(userId)
-                .orElseThrow(() -> {
-                    throw new NotFoundException(NotFoundException.userNotFound);
-                });
+    public TransactionResponseDataDTO execute(
+            UUID id,
+            UUID userId,
+            CreateTransactionDTO transactionData
+    ) {
+        Transaction oldTransaction = transactionsRepository.findOneById(id)
+                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+
+        if(!oldTransaction.getUser().getId().equals(userId)){
+            throw new BusinessException(BusinessException.incorrectUser);
+        }
 
         Transaction transaction = mapper.map(transactionData, Transaction.class);
-        transaction.setUser(user);
+        transaction.setId(id);
+        transaction.setUser(oldTransaction.getUser());
         transaction.setType(TransactionTypes.fromString(transactionData.type));
         transactionsRepository.save(transaction);
 

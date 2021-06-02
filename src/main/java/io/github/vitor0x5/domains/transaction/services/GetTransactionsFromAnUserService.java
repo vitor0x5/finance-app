@@ -6,42 +6,52 @@ import io.github.vitor0x5.domains.transaction.dtos.TransactionsBalanceResponseDT
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
-import io.github.vitor0x5.domains.user.entities.AppUser;
-import io.github.vitor0x5.domains.user.repositories.UsersRepository;
 import io.github.vitor0x5.shared.errors.types.NotFoundException;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 public class GetTransactionsFromAnUserService {
-    private final UsersRepository usersRepository;
     private final TransactionsRepository transactionsRepository;
     private final ModelMapper mapper;
 
-    public GetTransactionsFromAnUserService(UsersRepository usersRepository, TransactionsRepository transactionsRepository, ModelMapper mapper) {
-        this.usersRepository = usersRepository;
+    public GetTransactionsFromAnUserService(
+            TransactionsRepository transactionsRepository,
+            ModelMapper mapper
+    ) {
         this.transactionsRepository = transactionsRepository;
         this.mapper = mapper;
     }
 
     @Transactional
-    public TransactionsBalanceResponseDTO execute(String userEmail) {
-        var transactionsBalanceDTO = new TransactionsBalanceResponseDTO();
-        AppUser user = usersRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+    public TransactionsBalanceResponseDTO execute(UUID userId, int page, int elements) {
+        Pageable pageable = PageRequest.of(page, elements);
 
-        transactionsBalanceDTO.transactions = buildTransactionsData(transactionsRepository.findByUserId(user.getId()));
-        transactionsBalanceDTO.balance = calculateBalance(transactionsBalanceDTO.transactions);
+        List<Transaction> transactions = transactionsRepository
+                .findByUserId(userId, pageable)
+                .orElseThrow(()-> new NotFoundException(NotFoundException.transactionNotFound));
 
-        return  transactionsBalanceDTO;
+        return buildResponse(transactions);
     }
 
-    private List<TransactionResponseDataDTO> buildTransactionsData(List<Transaction> transactions) {
+    private TransactionsBalanceResponseDTO buildResponse(List<Transaction> transactions) {
+        var transactionsBalanceDTO = new TransactionsBalanceResponseDTO();
+        transactionsBalanceDTO.transactions = mapToTransactionsBalanceDTO(transactions);
+        transactionsBalanceDTO.transactions.sort(Comparator.comparing(t -> t.transactionDate));
+        transactionsBalanceDTO.balance = calculateBalance(transactionsBalanceDTO.transactions);
+
+        return transactionsBalanceDTO;
+    }
+
+    private List<TransactionResponseDataDTO> mapToTransactionsBalanceDTO(List<Transaction> transactions) {
         return transactions.stream()
                 .map(t -> mapper.map(t, TransactionResponseDataDTO.class))
                 .collect(Collectors.toList());
