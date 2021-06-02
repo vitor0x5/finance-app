@@ -6,4 +6,5 @@ A personal finance tracker build with Java + Spring Framework and React Js.
 - Spring Framework and Spring Boot
 -- Spring Security, Spring Data JPA, Spring Web
 - Postgres Databse
+- Flyway
 - React 
