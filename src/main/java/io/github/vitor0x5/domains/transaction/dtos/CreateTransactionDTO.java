@@ -1,5 +1,6 @@
 package io.github.vitor0x5.domains.transaction.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.vitor0x5.domains.transaction.utils.TransactionTypeValidatorAnnotation.TransactionTypeValidation;
 
 import javax.validation.constraints.NotNull;
@@ -21,5 +22,6 @@ public class CreateTransactionDTO {
     public BigDecimal value;
 
     @NotNull(message = "Transaction date can´t be null")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     public LocalDate transactionDate;
 }

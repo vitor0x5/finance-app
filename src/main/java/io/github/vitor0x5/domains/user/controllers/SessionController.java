@@ -1,13 +1,9 @@
 package io.github.vitor0x5.domains.user.controllers;
 
-import antlr.Token;
 import io.github.vitor0x5.domains.user.dto.SignInDTO;
-import io.github.vitor0x5.domains.user.dto.TokenDTO;
 import io.github.vitor0x5.domains.user.services.authentication.UserAuthenticateService;
-import io.github.vitor0x5.shared.errors.types.LoginException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;

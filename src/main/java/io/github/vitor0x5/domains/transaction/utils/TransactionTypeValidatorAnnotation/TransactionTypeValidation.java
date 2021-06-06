@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Constraint(validatedBy = TransactionTypeValidator.class)
 public @interface TransactionTypeValidation {
-    String message() default "Transaction type must be: 'income' or 'outcome'";
+    String message() default "Transaction type must be: 'i' or 'o'";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

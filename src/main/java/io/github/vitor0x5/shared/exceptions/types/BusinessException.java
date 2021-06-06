@@ -1,4 +1,4 @@
-package io.github.vitor0x5.shared.errors.types;
+package io.github.vitor0x5.shared.exceptions.types;
 
 public class BusinessException extends RuntimeException{
 

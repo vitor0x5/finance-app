@@ -5,7 +5,7 @@ import io.github.vitor0x5.domains.user.dto.UserResponseDataDTO;
 import io.github.vitor0x5.domains.user.entities.AppUser;
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
 import io.github.vitor0x5.shared.encoder.Encoder;
-import io.github.vitor0x5.shared.errors.types.BusinessException;
+import io.github.vitor0x5.shared.exceptions.types.BusinessException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

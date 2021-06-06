@@ -1,7 +1,7 @@
 package io.github.vitor0x5.domains.user.services;
 
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
-import io.github.vitor0x5.shared.errors.types.NotFoundException;
+import io.github.vitor0x5.shared.exceptions.types.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

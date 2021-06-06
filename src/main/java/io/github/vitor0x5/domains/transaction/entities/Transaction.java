@@ -18,7 +18,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "transactions")
 public class Transaction extends BaseEntity {
-    @Type(type = "pg-uuid")
     @ManyToOne()
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private AppUser user;

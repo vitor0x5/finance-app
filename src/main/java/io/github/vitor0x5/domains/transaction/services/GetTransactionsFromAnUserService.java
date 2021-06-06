@@ -6,7 +6,7 @@ import io.github.vitor0x5.domains.transaction.dtos.TransactionsBalanceResponseDT
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
-import io.github.vitor0x5.shared.errors.types.NotFoundException;
+import io.github.vitor0x5.shared.exceptions.types.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

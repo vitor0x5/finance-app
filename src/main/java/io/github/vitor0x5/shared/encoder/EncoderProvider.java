@@ -1,14 +1,13 @@
-package io.github.vitor0x5.config;
+package io.github.vitor0x5.shared.encoder;
 
-import io.github.vitor0x5.shared.encoder.Encoder;
 import io.github.vitor0x5.shared.encoder.implementations.BCrypt;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class IocConfiguration {
+public class EncoderProvider {
     @Bean
-    public Encoder encoder() {
+    public static Encoder encoder() {
         return new BCrypt();
     }
 }

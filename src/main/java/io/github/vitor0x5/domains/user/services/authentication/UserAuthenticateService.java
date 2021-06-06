@@ -6,7 +6,7 @@ import io.github.vitor0x5.domains.user.entities.AppUser;
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
 import io.github.vitor0x5.domains.user.repositories.implementations.UsersJpaRepository;
 import io.github.vitor0x5.shared.encoder.Encoder;
-import io.github.vitor0x5.shared.errors.types.LoginException;
+import io.github.vitor0x5.shared.exceptions.types.LoginException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.User;
@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.Cookie;
 import java.util.Optional;

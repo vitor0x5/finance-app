@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum TransactionTypes {
-    INCOME("income"),
-    OUTCOME("outcome");
+    INCOME("i"),
+    OUTCOME("o");
 
     private final String type;
 

@@ -2,10 +2,8 @@ package io.github.vitor0x5.domains.transaction.services;
 
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
-import io.github.vitor0x5.domains.user.entities.AppUser;
-import io.github.vitor0x5.domains.user.repositories.UsersRepository;
-import io.github.vitor0x5.shared.errors.types.BusinessException;
-import io.github.vitor0x5.shared.errors.types.NotFoundException;
+import io.github.vitor0x5.shared.exceptions.types.BusinessException;
+import io.github.vitor0x5.shared.exceptions.types.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
