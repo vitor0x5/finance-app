@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateUserServiceTest extends BaseTest {
-    static SignUpDTO user1;
 
     @Autowired
     private UsersRepository usersRepository;
@@ -24,7 +23,6 @@ public class CreateUserServiceTest extends BaseTest {
     @BeforeEach
     public void before() {
         createUserService = new CreateUserService(usersRepository, encoder, mapper);
-        user1 = UserMocksFactory.mockUser1SignUpDTO();
     }
 
     @Test

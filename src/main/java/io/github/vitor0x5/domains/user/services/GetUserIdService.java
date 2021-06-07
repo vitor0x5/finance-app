@@ -19,10 +19,9 @@ public class GetUserIdService {
 
     @Transactional
     public UUID execute(String userEmail) {
-        Optional<AppUser> user = usersRepository.findByEmail(userEmail);
-        if(user.isPresent()){
-            return user.get().getId();
-        }
-        throw new NotFoundException(NotFoundException.userNotFound);
+        AppUser user = usersRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+
+        return user.getId();
     }
 }

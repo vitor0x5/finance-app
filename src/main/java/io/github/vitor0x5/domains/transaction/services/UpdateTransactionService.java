@@ -30,7 +30,7 @@ public class UpdateTransactionService {
             CreateTransactionDTO transactionData
     ) {
         Transaction oldTransaction = transactionsRepository.findOneById(id)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+                .orElseThrow(() -> new NotFoundException(NotFoundException.transactionNotFound));
 
         if(!oldTransaction.getUser().getId().equals(userId)){
             throw new BusinessException(BusinessException.incorrectUser);

@@ -14,8 +14,7 @@ public class TestConfiguration {
 
     @Bean
     public ModelMapper mapper() {
-        MapperProducer mapperProducer = new MapperProducer();
-        return mapperProducer.get();
+        return MapperProducer.getMapper();
     }
 
     @Bean

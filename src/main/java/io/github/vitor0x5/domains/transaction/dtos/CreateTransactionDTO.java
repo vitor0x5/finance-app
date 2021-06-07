@@ -1,7 +1,7 @@
 package io.github.vitor0x5.domains.transaction.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.github.vitor0x5.domains.transaction.utils.TransactionTypeValidatorAnnotation.TransactionTypeValidation;
+import io.github.vitor0x5.domains.transaction.utils.transactionTypeValidator.TransactionTypeValidation;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;

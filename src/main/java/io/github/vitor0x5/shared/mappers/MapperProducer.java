@@ -26,4 +26,9 @@ public class MapperProducer implements Supplier<ModelMapper> {
     public ModelMapper get() {
         return mapper;
     }
+
+    public static ModelMapper getMapper() {
+        MapperProducer producer = new MapperProducer();
+        return producer.get();
+    }
 }

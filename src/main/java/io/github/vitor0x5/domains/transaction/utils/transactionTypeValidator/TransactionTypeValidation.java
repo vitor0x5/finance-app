@@ -1,4 +1,4 @@
-package io.github.vitor0x5.domains.transaction.utils.TransactionTypeValidatorAnnotation;
+package io.github.vitor0x5.domains.transaction.utils.transactionTypeValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

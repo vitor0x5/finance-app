@@ -15,7 +15,6 @@ import java.util.UUID;
 @Data
 public class BaseEntity {
     @Id
-    // @Type(type = "uuid-custom")
     private UUID id;
 
     public BaseEntity() {
