@@ -1,6 +1,6 @@
 package io.github.vitor0x5.domains.transaction.services;
 
-import io.github.vitor0x5.domains.transaction.TransactionsBaseTest;
+import io.github.vitor0x5.domains.transaction.TransactionsBaseServicesTest;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
 import io.github.vitor0x5.domains.transaction.utils.mocks.TransactionMocksFactory;
@@ -14,7 +14,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CreateTransactionServiceTest extends TransactionsBaseTest {
+class CreateTransactionServiceTest extends TransactionsBaseServicesTest {
     private CreateTransactionService createTransactionService;
 
     @Autowired

@@ -1,7 +1,6 @@
 package io.github.vitor0x5.domains.user.services;
 
-import io.github.vitor0x5.BaseTest;
-import io.github.vitor0x5.domains.user.dto.UserResponseDataDTO;
+import io.github.vitor0x5.domains.configurations.BaseServicesTest;
 import io.github.vitor0x5.domains.user.entities.AppUser;
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
 import io.github.vitor0x5.domains.user.utils.mocks.UserMocksFactory;
@@ -12,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class GetUserIdServiceTest extends BaseTest {
+class GetUserIdServiceTest extends BaseServicesTest {
 
     AppUser user1;
     AppUser user2;

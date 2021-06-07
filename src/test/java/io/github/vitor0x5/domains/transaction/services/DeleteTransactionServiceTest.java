@@ -1,6 +1,6 @@
 package io.github.vitor0x5.domains.transaction.services;
 
-import io.github.vitor0x5.domains.transaction.TransactionsBaseTest;
+import io.github.vitor0x5.domains.transaction.TransactionsBaseServicesTest;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
 import io.github.vitor0x5.domains.transaction.utils.mocks.TransactionMocksFactory;
 import io.github.vitor0x5.shared.exceptions.types.BusinessException;
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeleteTransactionServiceTest extends TransactionsBaseTest {
+class DeleteTransactionServiceTest extends TransactionsBaseServicesTest {
     UUID createdTransactionId;
 
     private DeleteTransactionService deleteTransactionServiceTest;

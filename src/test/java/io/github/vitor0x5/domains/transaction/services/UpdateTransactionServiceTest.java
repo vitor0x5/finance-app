@@ -1,7 +1,7 @@
 package io.github.vitor0x5.domains.transaction.services;
 
 import io.github.vitor0x5.domains.transaction.TransactionTypes;
-import io.github.vitor0x5.domains.transaction.TransactionsBaseTest;
+import io.github.vitor0x5.domains.transaction.TransactionsBaseServicesTest;
 import io.github.vitor0x5.domains.transaction.dtos.CreateTransactionDTO;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.UUID;
 
-class UpdateTransactionServiceTest extends TransactionsBaseTest {
+class UpdateTransactionServiceTest extends TransactionsBaseServicesTest {
     private Transaction createdTransaction1;
     private CreateTransactionDTO updatedTransactionDTO;
 

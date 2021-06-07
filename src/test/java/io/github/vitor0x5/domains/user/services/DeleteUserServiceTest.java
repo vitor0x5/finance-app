@@ -1,6 +1,6 @@
 package io.github.vitor0x5.domains.user.services;
 
-import io.github.vitor0x5.BaseTest;
+import io.github.vitor0x5.domains.configurations.BaseServicesTest;
 import io.github.vitor0x5.domains.user.entities.AppUser;
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
 import io.github.vitor0x5.domains.user.utils.mocks.UserMocksFactory;
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.UUID;
 
-class DeleteUserServiceTest extends BaseTest {
+class DeleteUserServiceTest extends BaseServicesTest {
     UUID user1Id;
 
     @Autowired

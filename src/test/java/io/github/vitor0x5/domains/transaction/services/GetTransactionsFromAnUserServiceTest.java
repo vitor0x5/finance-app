@@ -1,12 +1,11 @@
 package io.github.vitor0x5.domains.transaction.services;
 
-import io.github.vitor0x5.domains.transaction.TransactionsBaseTest;
+import io.github.vitor0x5.domains.transaction.TransactionsBaseServicesTest;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionsBalanceResponseDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
 import io.github.vitor0x5.domains.transaction.repositories.TransactionsRepository;
 import io.github.vitor0x5.domains.transaction.utils.mocks.TransactionMocksFactory;
-import io.github.vitor0x5.shared.exceptions.types.BusinessException;
 import io.github.vitor0x5.shared.exceptions.types.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-class GetTransactionsFromAnUserServiceTest extends TransactionsBaseTest {
+class GetTransactionsFromAnUserServiceTest extends TransactionsBaseServicesTest {
     private Transaction createdTransaction1;
     private Transaction createdTransaction2;
 

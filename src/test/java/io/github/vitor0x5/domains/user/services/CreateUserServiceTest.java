@@ -1,6 +1,6 @@
 package io.github.vitor0x5.domains.user.services;
 
-import io.github.vitor0x5.BaseTest;
+import io.github.vitor0x5.domains.configurations.BaseServicesTest;
 import io.github.vitor0x5.domains.user.dto.SignUpDTO;
 import io.github.vitor0x5.domains.user.dto.UserResponseDataDTO;
 import io.github.vitor0x5.domains.user.repositories.UsersRepository;
@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CreateUserServiceTest extends BaseTest {
+public class CreateUserServiceTest extends BaseServicesTest {
 
     @Autowired
     private UsersRepository usersRepository;

@@ -1,6 +1,6 @@
 package io.github.vitor0x5.domains.transaction;
 
-import io.github.vitor0x5.BaseTest;
+import io.github.vitor0x5.domains.configurations.BaseServicesTest;
 import io.github.vitor0x5.domains.transaction.dtos.CreateTransactionDTO;
 import io.github.vitor0x5.domains.transaction.dtos.TransactionResponseDataDTO;
 import io.github.vitor0x5.domains.transaction.entities.Transaction;
@@ -10,7 +10,7 @@ import io.github.vitor0x5.domains.user.utils.mocks.UserMocksFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class TransactionsBaseTest extends BaseTest {
+public class TransactionsBaseServicesTest extends BaseServicesTest {
 
     @Autowired
     private UsersRepository usersRepository;
