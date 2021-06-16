@@ -21,7 +21,7 @@ public class ShowProfileService {
     @Transactional
     public UserResponseDataDTO execute(String userEmail) {
         AppUser user = usersRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+                .orElseThrow(() -> new NotFoundException(NotFoundException.USER));
 
         return mapper.map(user, UserResponseDataDTO.class);
     }

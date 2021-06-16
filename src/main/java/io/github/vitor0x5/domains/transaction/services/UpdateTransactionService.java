@@ -30,10 +30,10 @@ public class UpdateTransactionService {
             CreateTransactionDTO transactionData
     ) {
         Transaction oldTransaction = transactionsRepository.findOneById(id)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.transactionNotFound));
+                .orElseThrow(() -> new NotFoundException(NotFoundException.TRANSACTION));
 
         if(!oldTransaction.getUser().getId().equals(userId)){
-            throw new BusinessException(BusinessException.incorrectUser);
+            throw new BusinessException(BusinessException.INCORRECT_USER);
         }
 
         Transaction transaction = mapper.map(transactionData, Transaction.class);

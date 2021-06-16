@@ -20,10 +20,10 @@ public class DeleteTransactionService {
     @Transactional
     public void execute(UUID id, String userEmail){
         Transaction transaction = transactionsRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.transactionNotFound));
+                .orElseThrow(() -> new NotFoundException(NotFoundException.TRANSACTION));
 
         if(!transaction.getUser().getEmail().equals(userEmail)){
-            throw new BusinessException(BusinessException.incorrectUser);
+            throw new BusinessException(BusinessException.INCORRECT_USER);
         }
         transactionsRepository.deleteById(id);
     }

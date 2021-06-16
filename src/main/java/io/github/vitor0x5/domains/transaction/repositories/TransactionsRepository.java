@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface TransactionsRepository {
-    Transaction save(Transaction income);
+    Transaction save(Transaction transacion);
     Optional<List<Transaction>> findByUserId(UUID userId, Pageable pageable);
     Optional<Transaction> findOneById(UUID userId);
     Optional<Transaction> findById(UUID transactionId);
