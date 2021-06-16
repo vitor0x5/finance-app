@@ -27,7 +27,7 @@ public class CreateUserService {
     public UserResponseDataDTO execute(SignUpDTO userData) throws BusinessException{
         if(usersRepository.findByEmail(userData.email).isPresent()) {
             throw new BusinessException(
-                    BusinessException.emailAlreadyUsed);
+                    BusinessException.EMAIL_ALREADY_USED);
         }
 
         AppUser user = mapper.map(userData, AppUser.class);

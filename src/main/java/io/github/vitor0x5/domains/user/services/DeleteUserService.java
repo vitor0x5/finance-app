@@ -23,6 +23,6 @@ public class DeleteUserService {
                     usersRepository.delete(user);
                     return user;
                 }).orElseThrow(() ->
-                new NotFoundException(NotFoundException.userNotFound));
+                new NotFoundException(NotFoundException.USER));
     }
 }

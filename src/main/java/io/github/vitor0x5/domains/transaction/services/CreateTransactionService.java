@@ -34,7 +34,7 @@ public class CreateTransactionService {
     public TransactionResponseDataDTO execute(CreateTransactionDTO transactionData, UUID userId) {
         AppUser user = usersRepository.findById(userId)
                 .orElseThrow(() -> {
-                    throw new NotFoundException(NotFoundException.userNotFound);
+                    throw new NotFoundException(NotFoundException.USER);
                 });
 
         Transaction transaction = mapper.map(transactionData, Transaction.class);

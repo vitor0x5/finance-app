@@ -6,7 +6,6 @@ import io.github.vitor0x5.shared.exceptions.types.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,7 +19,7 @@ public class GetUserIdService {
     @Transactional
     public UUID execute(String userEmail) {
         AppUser user = usersRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new NotFoundException(NotFoundException.userNotFound));
+                .orElseThrow(() -> new NotFoundException(NotFoundException.USER));
 
         return user.getId();
     }

@@ -37,7 +37,7 @@ public class GetTransactionsFromAnUserService {
 
         List<Transaction> transactions = transactionsRepository
                 .findByUserId(userId, pageable)
-                .orElseThrow(()-> new NotFoundException(NotFoundException.transactionNotFound));
+                .orElseThrow(()-> new NotFoundException(NotFoundException.TRANSACTION));
 
         return buildResponse(transactions);
     }
